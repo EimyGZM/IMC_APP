@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:frontend/create.dart';
+import 'package:frontend/imc_cal.dart';
 
 class HomePage extends StatefulWidget {
   HomePageState createState() {
@@ -56,7 +57,11 @@ class HomePageState extends State<HomePage> {
 
                   Padding(padding: EdgeInsets.only(top: 20)),
                   ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(
+                        context,
+                      ).push(MaterialPageRoute(builder: (_) => IMC_cal()));
+                    },
                     icon: Icon(Icons.create),
                     label: Text("CALCULAR"),
                   ),

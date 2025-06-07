@@ -39,3 +39,34 @@ app.post("/api/add_usuario", (req,res)=>{
     })
 
 })
+
+app.post("/api/cal_imc", (req,res)=>{
+
+    console.log("Result:",req.body);
+    const pdata = {
+        "id": userData.length+1,
+        "peso": req.body.peso,
+        "altura":req.body.altura,
+    }
+
+    userData.push(pdata);
+    console.log("Final Result", pdata);
+
+    res.statusCode(200).send({
+        "Status_code":200,
+        "Messafe":  "Usuario data fue agregado correctamente",
+        "usuario": pdata
+    })
+
+})
+
+// GET API
+
+app.get("/api/get_usuario", (req,res)=>{
+    if(userData.length>0){
+        res.status(200).send({
+            'status_code': 200,
+            'usuario': [],
+        })
+    }
+})
